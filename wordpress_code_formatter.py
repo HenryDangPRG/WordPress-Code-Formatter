@@ -1,14 +1,19 @@
 import sys
 
 def fixFormat(file_name):
+    
+    dict = {
+        '&lt;':'<', '&gt;':'>', '&quot;':"'", 
+        '&amp;lt;':'<', '&amp;gt;':'>', '&amp;quot;':"'", 
+    }
 
     original = open(file_name, 'r')
     fixed_copy = open("fixed_" + file_name, 'w')
     
     for line in original:
-        line = line.replace('&lt;', '<')
-        line = line.replace('&gt;', '>')
-        line = line.replace("&quot;", '"')
+        for key in dict.keys():
+            if key in line:
+                line = line.replace(key, dict[key])
         fixed_copy.write(line)
 
     original.close()
