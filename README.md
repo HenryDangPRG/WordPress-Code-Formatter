@@ -9,6 +9,8 @@ Below are a list of changes that Wordpress Code Formatter will fix :
 * `&lt;` into `<`
 * `&gt;` into `>`
 * `&quot;` into `"`
+* Removes `&amp;` (Oddly, ampersands do not get changed into `&amp;`, but the HTML entity randomly pops up)
+* Removes all instances of `&amp` + any HTML character entity due to an issue with the `&amp;` HTML entity.
 
 For example, if you have code in Java, WordPress will turn this :
 ```
